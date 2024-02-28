@@ -82,14 +82,21 @@ function scrapeInfo() {
   }
 
   function makeHeaderRow(times) {
-    headerRow = ['PersonID', 'Name']
+    const headerRow = ['PersonID', 'Name']
 
+    const timeZone = document.getElementById("ParticipantTimeZone").value;
     for (const time of times) {
       const milliTime = time * 1000;
-      const options = { weekday: "short" };
-      const day = new Intl.DateTimeFormat("en-US", options).format(milliTime);
-      const hour = new Date(milliTime).getUTCHours();
-      const minute = new Date(milliTime).getUTCMinutes();
+      
+      const dayOptions = { weekday: "short" };
+      const day = new Intl.DateTimeFormat("en-US", dayOptions).format(milliTime);
+
+      const hourOptions = { hour: "2-digit", hour12: false, timeZone: timeZone };
+      const hour = new Intl.DateTimeFormat("en-US", hourOptions).format(milliTime);
+
+      const minuteOptions = { minute: "2-digit", timeZone: timeZone };
+      const minute = new Intl.DateTimeFormat("en-US", minuteOptions).format(milliTime);
+
       const slotString = `${day} ${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
       headerRow.push(slotString);
     }
