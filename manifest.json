@@ -1,0 +1,11 @@
+{
+  "name": "BW2M",
+  "action": {},
+  "manifest_version": 3,
+  "version": "0.1",
+  "description": "BW2M",
+  "permissions": ["activeTab", "scripting", "downloads"],
+  "background": {
+    "service_worker": "service-worker.js"
+  }
+}
