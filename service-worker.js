@@ -84,7 +84,7 @@ function scrapeInfo() {
   function makeHeaderRow(times) {
     const headerRow = ['PersonID', 'Name']
 
-    const timeZone = document.getElementById("ParticipantTimeZone").value;
+    const timeZone = document.getElementById("ParticipantTimeZone").value || Intl.DateTimeFormat().resolvedOptions().timeZone;
     for (const time of times) {
       const milliTime = time * 1000;
       
