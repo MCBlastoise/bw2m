@@ -98,8 +98,8 @@ function scrapeInfo() {
   }
 
   function makeCSVRows(times, nameMap, availabilityMap) {
-    const header_row = makeHeaderRow(times)
-    const rows = [header_row]
+    const headerRow = makeHeaderRow(times)
+    const rows = [headerRow]
   
     var displayID = 0;
     for ( const [personID, availabilitySet] of availabilityMap.entries() ) {
@@ -124,7 +124,7 @@ function scrapeInfo() {
     
     const fileID = [...Array(4).keys()].map( _ => Math.floor(Math.random() * 10) ).join('');
     const filename = `availability_${fileID}`;
-    
+
     const link = document.createElement("a");
     link.download = filename;
     link.href = encodedUri;
