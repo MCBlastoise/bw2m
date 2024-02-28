@@ -82,7 +82,7 @@ function scrapeInfo() {
   }
 
   function makeHeaderRow(times) {
-    header_row = ['Name']
+    headerRow = ['Name']
 
     for (const time of times) {
       const milliTime = time * 1000;
@@ -91,10 +91,10 @@ function scrapeInfo() {
       const hour = new Date(milliTime).getUTCHours();
       const minute = new Date(milliTime).getUTCMinutes();
       const slotString = `${day} ${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
-      header_row.push(slotString);
+      headerRow.push(slotString);
     }
 
-    return header_row
+    return headerRow
   }
 
   function makeCSVRows(times, nameMap, availabilityMap) {
