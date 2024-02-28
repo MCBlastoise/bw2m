@@ -121,11 +121,11 @@ function scrapeInfo() {
   function makeAndDownloadCSV(csvRows) {
     const csvContent = "data:text/csv;charset=utf-8," + csvRows.map(r => r.join(",")).join("\n");
     const encodedUri = encodeURI(csvContent);
-
-    const link = document.createElement("a");
     
     const fileID = [...Array(4).keys()].map( _ => Math.floor(Math.random() * 10) ).join('');
-    const filename = `availability_${fileID}`
+    const filename = `availability_${fileID}`;
+    
+    const link = document.createElement("a");
     link.download = filename;
     link.href = encodedUri;
     link.click();
