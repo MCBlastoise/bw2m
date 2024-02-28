@@ -82,7 +82,7 @@ function scrapeInfo() {
   }
 
   function makeHeaderRow(times) {
-    headerRow = ['Name']
+    headerRow = ['PersonID', 'Name']
 
     for (const time of times) {
       const milliTime = time * 1000;
@@ -101,16 +101,18 @@ function scrapeInfo() {
     const header_row = makeHeaderRow(times)
     const rows = [header_row]
   
+    var displayID = 0;
     for ( const [personID, availabilitySet] of availabilityMap.entries() ) {
       const personName = nameMap.get(personID);
-      const row = [personName];
+      const row = [displayID, personName];
   
       for (var timeIndex = 0; timeIndex < times.length; timeIndex++) {
         const val = availabilitySet.has(timeIndex) ? 1 : 0;
         row.push(val)
       }
   
-      rows.push(row)
+      rows.push(row);
+      displayID++;
     }
 
     return rows
