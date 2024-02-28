@@ -129,7 +129,7 @@ function scrapeInfo() {
     const csvContent = "data:text/csv;charset=utf-8," + csvRows.map(r => r.join(",")).join("\n");
     const encodedUri = encodeURI(csvContent);
     
-    const fileID = [...Array(4).keys()].map( _ => Math.floor(Math.random() * 10) ).join('');
+    const fileID = [...Array(6).keys()].map( _ => Math.floor(Math.random() * 10) ).join('');
     const filename = `availability_${fileID}`;
 
     const link = document.createElement("a");
