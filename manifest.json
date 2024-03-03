@@ -1,9 +1,9 @@
 {
-  "name": "BW2M",
+  "name": "BetterWhen2meet",
   "action": {},
   "manifest_version": 3,
   "version": "0.1",
-  "description": "BW2M",
+  "description": "Chrome extension to extend the functionality of When2meet",
   "permissions": ["activeTab", "scripting", "downloads"],
   "background": {
     "service_worker": "service-worker.js"
