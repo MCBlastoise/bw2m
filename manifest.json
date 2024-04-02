@@ -1,11 +1,16 @@
 {
   "name": "BetterWhen2meet",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAki1usILFyThmsEnLqSR0jkC5BHobSKYiyZPkVfAOpaFS0Q9k7yr/vc88BTt8SRQlMeILQNvUDfQfIJwmmVaNhDxID3UyYydbO3UjBLP/oNCClZpLN8Aa4SFRzbfymHBwgFZ1cFFlxVwUmJmY3KUghbvmJVgfgaen42aUVfMwnmOe/w9etlO7qPulllwAJl7AnBelMEysD2ptjCVEx2+MxxqD60YS664d5hsEW1cyC527symbm8FQuxo7PF0WTQM6C+8rONlikdjPNgC6FxBxDbt0/0lQgReVnoo5Y/Mj9VHrOXzEiRFmjtceYJ3fFR752avT8YehaM0wCzZDvch89wIDAQAB",
   "action": {},
   "manifest_version": 3,
   "version": "0.1",
   "description": "Chrome extension to extend the functionality of When2meet",
-  "permissions": ["activeTab", "scripting", "downloads"],
+  "permissions": ["activeTab", "scripting", "downloads", "identity", "storage"],
   "background": {
     "service_worker": "service-worker.js"
+  },
+  "oauth2": {
+    "client_id": "313449788654-8h86vd98ck916bfg1t91dlohi4ejkqf9.apps.googleusercontent.com",
+    "scopes":["https://www.googleapis.com/auth/userinfo.email"]
   }
 }

@@ -149,11 +149,35 @@ function scrapeInfo() {
   makeAndDownloadCSV(rows);
 }
 
-chrome.action.onClicked.addListener((tab) => {
+async function login() {
+  token = await chrome.identity.getAuthToken({interactive: true});
+
+  console.log("Logged in")
+  console.log(token)
+
+  return token.token
+}
+
+async function logout(token) {
+  const revocationUrl = 'https://accounts.google.com/o/oauth2/revoke?token=' + token;
+  await fetch(revocationUrl);
+
+  await chrome.identity.clearAllCachedAuthTokens()
+
+  console.log("Logged out")
+}
+
+chrome.action.onClicked.addListener( async (tab) => {
+
+  // const token = await login();
+  // await new Promise(r => setTimeout(r, 2000));
+  // await logout(token);
+  
   if (tab.url.includes('when2meet.com')) {
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
       function: scrapeInfo
     });
   }
+  
 });
